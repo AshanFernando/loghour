@@ -6,5 +6,6 @@ export function getToken(code) {
 }
 
 export function getIssues(options) {
+  delete axios.defaults.headers.common['If-None-Match'];
   return axios.get('/api/repos/' + options.org + '/from/' + options.from + '/to/' + options.to + '/user/' + options.user);
 }
